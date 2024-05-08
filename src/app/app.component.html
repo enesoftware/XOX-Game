@@ -1,0 +1,14 @@
+<h1>XOX Game</h1>
+<h2 class="alert alert-warning text-center">{{message}}</h2>
+<button class="btn btn-primary w-100 " (click)="newGame()">New Game</button>
+<div class="row mt-3">
+  <button (click)="setMark(index)" style="border: 1px solid #ccc; height: 150px; cursor: pointer;"
+    class="col-md-4 text-center btn" [ngClass]="changeWinnerButtonClass(game.winner)"
+    *ngFor="let game of games let index = index">
+    <span style="font-size: 100px;">{{game.mark}}</span>
+  </button>
+</div>
+<hr>
+<button *ngFor="let m of moves let i = index" class="btn btn-danger mx-1 mt-1" (click)="returnSelectedMove(i)">Move
+  {{i+1}}</button>
+<router-outlet></router-outlet>
